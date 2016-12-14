@@ -14,3 +14,6 @@ class Vector2D(object):
 
     def copy(self):
         return Vector2D(self.x, self.y)
+
+    def equals(self, other):
+        return self.x == other.x and self.y == other.y
