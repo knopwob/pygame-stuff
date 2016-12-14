@@ -32,13 +32,14 @@ class Particle(object):
         self.pos.add(self.vel)
 
     def alive(self):
-        return self.pos.y > height
+        return self.pos.y < height
 
 class Glimmer(Particle):
     def __init__(self, pos, vel=Vector2D(0,0)):
         Particle.__init__(self, pos, vel)
 
     def update(self):
+        self.apply_force(Vector2D(random.uniform(-0.3,0.3),0))
         Particle.update(self)
         self.fade_color()
 
@@ -52,8 +53,8 @@ class Glimmer(Particle):
 
 class Firework(Particle):
     def __init__(self):
-        pos = Vector2D(random.randint(0, width), height)
-        vel_x = random.randint(-2, 2)
+        pos = Vector2D(width / 2, height)
+        vel_x = random.randint(-3, 3)
         vel_y = -1 * random.randint(7, 10)
         vel = Vector2D(vel_x, vel_y)
         Particle.__init__(self, pos, vel)
@@ -83,7 +84,7 @@ class Firework(Particle):
             self.explode()
 
     def alive(self):
-        return  self.exploded
+        return  not self.exploded
 
 ##############################
 # GLOBALS
@@ -130,7 +131,7 @@ def loop():
         o.draw()
 
     # remove deleteable particles
-    objects = filter(lambda x: not x.alive(), objects)
+    objects = filter(lambda x: x.alive(), objects)
 
     pygame.display.update()
 
