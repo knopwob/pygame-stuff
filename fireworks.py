@@ -66,7 +66,6 @@ class Firework(Particle):
 
     def explode(self):
         self.exploded = True
-        print "exploding"
         global objects
         for i in xrange(0,60):
             vx = random.uniform(-4,4) + self.vel.x
@@ -132,7 +131,6 @@ def loop():
 
     # remove deleteable particles
     objects = filter(lambda x: not x.alive(), objects)
-    print len(objects)
 
     pygame.display.update()
 
@@ -150,8 +148,6 @@ def main():
 
     while(loop()):
         pass
-
-    print "exiting cleanly"
 
 if __name__ == "__main__":
     main()
