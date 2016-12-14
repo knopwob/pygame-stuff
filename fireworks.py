@@ -54,7 +54,7 @@ class Firework(Particle):
     def __init__(self):
         pos = Vector2D(random.randint(0, width), height)
         vel_x = random.randint(-2, 2)
-        vel_y = -1 * random.randint(8, 12)
+        vel_y = -1 * random.randint(7, 10)
         vel = Vector2D(vel_x, vel_y)
         Particle.__init__(self, pos, vel)
 
@@ -99,7 +99,7 @@ screen = None
 clock = None
 elapsed = 0
 
-gravity = Vector2D(0, 0.2)
+gravity = Vector2D(0, 0.1)
 
 objects = list()
 
