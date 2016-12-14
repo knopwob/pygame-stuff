@@ -4,24 +4,12 @@ import pygame
 import sys
 import random
 
+from knopgame.vector2d import Vector2D
+
 ##############################
 # CLASSES
 ##############################
 
-class Vector2D(object):
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-
-    def as_tuple(self):
-        return (self.x, self.y)
-
-    def add(self, other):
-        self.x += other.x
-        self.y += other.y
-
-    def copy(self):
-        return Vector2D(self.x, self.y)
 
 
 class Particle(object):
